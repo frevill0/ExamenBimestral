@@ -1,0 +1,97 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.image-container {
+  position: relative;
+  
+  ion-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-transform: capitalize;
+  }
+}
+
+ion-grid {
+  padding: 20px;
+}
+
+ion-card {
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; // Aspect ratio 1:1
+  overflow: hidden;
+  
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  ion-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-transform: capitalize;
+    z-index: 1;
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+}
+
+ion-card-header {
+  padding: 10px;
+}
+
+ion-card-title {
+  font-size: 1em;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+ion-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
