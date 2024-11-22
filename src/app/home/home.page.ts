@@ -39,8 +39,9 @@ export class HomePage implements OnInit {
     this.items = []; // Limpiar items existentes
     
     try {
+      const randomIds = Array.from({length: 10}, () => Math.floor(Math.random() * 1000) + 1);
       const bookResponse = await this.http
-        .get<BookResponse>('https://gutendex.com/books?ids=1,2,3,4,5,6,7,8,9,10')
+        .get<BookResponse>(`https://gutendex.com/books?ids=${randomIds.join(',')}`)
         .toPromise();
 
       for (let i = 0; i < 10; i++) {
