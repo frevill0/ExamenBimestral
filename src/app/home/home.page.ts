@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { StorageService } from '../services/storage.service';
+import { ToastController } from '@ionic/angular';
 
 interface Book {
   title: string;
@@ -28,7 +30,11 @@ export class HomePage implements OnInit {
   items: Item[] = [];
   isLoading = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private storageService: StorageService,
+    private toastController: ToastController
+  ) {}
 
   ngOnInit() {
     this.loadData();
@@ -69,6 +75,30 @@ export class HomePage implements OnInit {
       console.error('Error loading data:', error);
     } finally {
       this.isLoading = false;
+    }
+  }
+
+  async saveCurrentTitles() {
+    try {
+      const titles = this.items.map(item => item.bookTitle);
+      await this.storageService.saveBookTitles(titles);
+      
+      const toast = await this.toastController.create({
+        message: 'Titles saved successfully!',
+        duration: 2000,
+        color: 'success',
+        position: 'bottom'
+      });
+      await toast.present();
+    } catch (error) {
+      console.error('Error saving titles:', error);
+      const toast = await this.toastController.create({
+        message: 'Error saving titles',
+        duration: 2000,
+        color: 'danger',
+        position: 'bottom'
+      });
+      await toast.present();
     }
   }
 }
