@@ -23,3 +23,5 @@
 <p>
   Solo abres la aplicación y esta te mostrara los 10 titulos e imagenes randomicas de ahí puedes guardar en la nube si deseas 
 </p>
+
+![{3B02BF67-D41A-40B3-947E-2BB432003FC8}](https://github.com/user-attachments/assets/628031ef-4f2e-4e8e-9758-2eba6dbc0589)
