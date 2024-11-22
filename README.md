@@ -21,9 +21,10 @@
 
 <h2>🌐 Cómo Funciona</h2>
 <p>
-  Solo abres la aplicación y esta te mostrara los 10 titulos e imagenes randomicas de ahí puedes guardar en la nube si deseas 
+  Solo abres la aplicación y esta te mostrara los 10 titulos e imagenes randomicas de ahí puedes guardar en la nube si deseas, se agrego tambien un boton de reseteo por si quires ver nuevas imagenes 
 </p>
 
 ![{3B02BF67-D41A-40B3-947E-2BB432003FC8}](https://github.com/user-attachments/assets/628031ef-4f2e-4e8e-9758-2eba6dbc0589)
 
+![{7AAA89A5-1CE9-40E7-BD39-3DB5B4203837}](https://github.com/user-attachments/assets/a7814676-3265-4c6a-aabc-5ac5257288a1)
 
