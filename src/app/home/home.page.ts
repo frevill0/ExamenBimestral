@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StorageService } from '../services/storage.service';
 import { ToastController } from '@ionic/angular';
+import { FirebaseService } from '../services/firebase.service';
 
 interface Book {
   title: string;
@@ -33,7 +34,8 @@ export class HomePage implements OnInit {
   constructor(
     private http: HttpClient,
     private storageService: StorageService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private firebaseService: FirebaseService
   ) {}
 
   ngOnInit() {
@@ -80,20 +82,21 @@ export class HomePage implements OnInit {
 
   async saveCurrentTitles() {
     try {
-      const titles = this.items.map(item => item.bookTitle);
-      await this.storageService.saveBookTitles(titles);
+      for (const item of this.items) {
+        await this.firebaseService.saveBookTitle(item.bookTitle, item.type, item.image);
+      }
       
       const toast = await this.toastController.create({
-        message: 'Titles saved successfully!',
+        message: '¡Títulos guardados en Firebase exitosamente!',
         duration: 2000,
         color: 'success',
         position: 'bottom'
       });
       await toast.present();
     } catch (error) {
-      console.error('Error saving titles:', error);
+      console.error('Error saving to Firebase:', error);
       const toast = await this.toastController.create({
-        message: 'Error saving titles',
+        message: 'Error al guardar en Firebase',
         duration: 2000,
         color: 'danger',
         position: 'bottom'
